@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Work from Home 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Work from Home
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-wfh">wfh module</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Work from Home</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Work from Home 1.0.0 documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="work-from-home-project">
+<h1>Work from Home Project<a class="headerlink" href="#work-from-home-project" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-wfh"></span><div class="section" id="module-wfh">
+<span id="wfh-module"></span><h2>wfh module<a class="headerlink" href="#module-wfh" title="Permalink to this headline">¶</a></h2>
+<p>Setup VPN and remote desktop connection automatically.</p>
+<p class="rubric">Example</p>
+<p>Connect to VPN and remote desktop with wake on LAN</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python wfh.py wol
+Connecting
+Connected
+add net 10.0.0.0: gateway ppp0
+Wait a moment for startup of remote desktop.
+</pre></div>
+</div>
+<p>Connect to VPN and remote desktop without wake on LAN</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python wfh.py
+Connecting
+Connected
+add net 10.0.0.0: gateway ppp0
+Wake on LAN skipped.
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<ul>
+<li><p>Download Chrome web driver and copy to <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>
+<a class="reference external" href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a></p></li>
+<li><p>Save private parameters in keychain</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ keyring set vpn &lt;user_id&gt;
+$ keyring set passlogic_id &lt;user_id&gt;
+$ keyring set passlogic_position &lt;user_id&gt;
+$ keyring set wol &lt;wol_id&gt;
+</pre></div>
+</div>
+</li>
+<li><p>How to set <code class="docutils literal notranslate"><span class="pre">passlogic_position</span></code> ?</p>
+<p>Cell numbers in PassLogic matrix</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span> <span class="mi">10</span> <span class="mi">11</span>
+<span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span> <span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> <span class="mi">20</span> <span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span>
+<span class="mi">24</span> <span class="mi">25</span> <span class="mi">26</span> <span class="mi">27</span> <span class="mi">28</span> <span class="mi">29</span> <span class="mi">30</span> <span class="mi">31</span> <span class="mi">32</span> <span class="mi">33</span> <span class="mi">34</span> <span class="mi">35</span>
+<span class="mi">36</span> <span class="mi">37</span> <span class="mi">38</span> <span class="mi">39</span> <span class="mi">40</span> <span class="mi">41</span> <span class="mi">42</span> <span class="mi">43</span> <span class="mi">44</span> <span class="mi">45</span> <span class="mi">46</span> <span class="mi">47</span>
+</pre></div>
+</div>
+<p>If your password positions are <code class="docutils literal notranslate"><span class="pre">*1</span></code> <code class="docutils literal notranslate"><span class="pre">*2</span></code> <code class="docutils literal notranslate"><span class="pre">*3</span></code> <code class="docutils literal notranslate"><span class="pre">*4</span></code> ,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span> <span class="mi">10</span> <span class="mi">11</span>
+<span class="mi">12</span> <span class="o">*</span><span class="mi">2</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span> <span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> <span class="mi">20</span> <span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span>
+<span class="mi">24</span> <span class="mi">25</span> <span class="o">*</span><span class="mi">3</span> <span class="mi">27</span> <span class="mi">28</span> <span class="mi">29</span> <span class="mi">30</span> <span class="mi">31</span> <span class="mi">32</span> <span class="mi">33</span> <span class="mi">34</span> <span class="mi">35</span>
+<span class="mi">36</span> <span class="mi">37</span> <span class="mi">38</span> <span class="o">*</span><span class="mi">4</span> <span class="mi">40</span> <span class="mi">41</span> <span class="mi">42</span> <span class="mi">43</span> <span class="mi">44</span> <span class="mi">45</span> <span class="mi">46</span> <span class="mi">47</span>
+</pre></div>
+</div>
+<p>then your <code class="docutils literal notranslate"><span class="pre">passlogic_position</span></code> is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">passlogic_position</span> <span class="o">=</span> <span class="s1">&#39;0-13-26-39&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create shortcut to remote desktop app</p></li>
+</ul>
+</div>
+<dl class="py class">
+<dt id="wfh.PassLogic">
+<em class="property">class </em><code class="sig-prename descclassname">wfh.</code><code class="sig-name descname">PassLogic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfh.PassLogic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Generate one-time password using PassLogic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user_id</strong> (<em>str</em>) – VPN user ID (employee ID)</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfh</span> <span class="kn">import</span> <span class="n">PassLogic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">PassLogic</span><span class="p">(</span><span class="s1">&#39;1234567&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matrix</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">get_matrix</span><span class="p">(</span><span class="s1">&#39;https://passlogic&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">password</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">get_matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+<span class="go">1234</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="wfh.PassLogic.get_matrix">
+<code class="sig-name descname">get_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pl_url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfh.PassLogic.get_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get random numbers from PassLogic random number matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pl_url</strong> (<em>str</em>) – PassLogic URL</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>PassLogic random numbers</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="wfh.PassLogic.get_password">
+<code class="sig-name descname">get_password</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfh.PassLogic.get_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate one-time password from PassLogic random numbers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>list</em>) – PassLogic random numbers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Password generated from PassLogic random numbers</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="wfh.Vpn">
+<em class="property">class </em><code class="sig-prename descclassname">wfh.</code><code class="sig-name descname">Vpn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">service_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfh.Vpn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Setup VPN connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>service_name</strong> (<em>str</em>) – VPN service name</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfh</span> <span class="kn">import</span> <span class="n">Vpn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vpn</span> <span class="o">=</span> <span class="n">Vpn</span><span class="p">(</span><span class="s1">&#39;mypvn&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vpn_status</span> <span class="o">=</span> <span class="n">vpn</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;myid&#39;</span><span class="p">,</span> <span class="s1">&#39;@mydomain&#39;</span><span class="p">,</span> <span class="s1">&#39;mypassword&#39;</span><span class="p">)</span>
+<span class="go">Connected</span>
+<span class="go">add net 10.0.0.0: gateway ppp0</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="wfh.Vpn.connect">
+<code class="sig-name descname">connect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em>, <em class="sig-param"><span class="n">domain</span></em>, <em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfh.Vpn.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to VPN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> (<em>str</em>) – VPN user ID</p></li>
+<li><p><strong>domain</strong> (<em>str</em>) – VPN user domain</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – VPN one-time password</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>VPN connection status</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="wfh.main">
+<code class="sig-prename descclassname">wfh.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wfh.main" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pl_url</strong> (<em>str</em>) – PassLogic URL</p></li>
+<li><p><strong>service_name</strong> (<em>str</em>) – VPN service name</p></li>
+<li><p><strong>user_id</strong> (<em>str</em>) – VPN user ID (employee ID)</p></li>
+<li><p><strong>domain</strong> (<em>str</em>) – VPN user domain</p></li>
+<li><p><strong>wol_url</strong> – Wake on LAN site URL</p></li>
+<li><p><strong>wol_xpath</strong> – Xpath to start Wake on LAN</p></li>
+<li><p><strong>wol_id</strong> (<em>str</em>) – Wake on LAN site user ID (mail acount)</p></li>
+<li><p><strong>path_to_rdp</strong> (<em>str</em>) – Path to shortcut of remote desktop app</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="wfh.remote_desktop">
+<code class="sig-prename descclassname">wfh.</code><code class="sig-name descname">remote_desktop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path_to_rdp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfh.remote_desktop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to remote desktop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path_to_rdp</strong> (<em>str</em>) – Path to shortcut of remote desktop app</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result code</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfh</span> <span class="kn">import</span> <span class="n">remote_desktop</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">remote_desktop</span><span class="p">(</span><span class="s1">&#39;/Users/hoge/Desktop/myshortcut&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="wfh.wol">
+<code class="sig-prename descclassname">wfh.</code><code class="sig-name descname">wol</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wol_url</span></em>, <em class="sig-param"><span class="n">wol_xpath</span></em>, <em class="sig-param"><span class="n">wol_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wfh.wol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start wake on LAN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wol_url</strong> (<em>str</em>) – WoL site URL</p></li>
+<li><p><strong>wol_id</strong> (<em>str</em>) – WoL site auth ID</p></li>
+<li><p><strong>wol_xpath</strong> (<em>str</em>) – xpath to start WoL</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result code</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">wfh</span> <span class="kn">import</span> <span class="n">wol</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rc</span> <span class="o">=</span> <span class="n">wol</span><span class="p">(</span><span class="s1">&#39;https://wol&#39;</span><span class="p">,</span> <span class="s1">&#39;//body/wol/input&#39;</span><span class="p">,</span> <span class="s1">&#39;hoge&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, mozzio616.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
